@@ -223,10 +223,9 @@ Tiers: `ww`, `ww_cr`, `ww_cr_lca`. Defaults are in `sp2_nway.NW_PRESETS`; any ke
 * This is a demonstration of the model dynamics, not a good Doom-playing agent.
 
 ## References
-* Abbott, L. F., & Chance, F. S. — see Wong & Wang (2006) for the firing-rate function used.
 * Ashwood, Z. C., et al. (2022). Mice alternate between discrete strategies during perceptual decision-making. *Nature Neuroscience, 25*(2), 201-212.
 * Brinkman, B. A. W., et al. (2022). Metastable dynamics of neural circuits and networks. *Applied Physics Reviews, 9*, 011313.
-* Harrison, S. M., Chuong, O'Camb & Blair. *The dynamics of reaction time distributions in StarCraft 2* (StarPower 1; under revision, JEP: General). Data: doi:10.20383/103.01000.
+* Harrison, S. M., Chuong, O'Camb & Blair. *The Dynamics of Reaction Time Distributions: An Analysis of Cross-sectional and Longitudinal Telemetry Data from 25,364 Hours of Gameplay from the Strategy Video Game StarCraft 2* (in press, JEP: General). Data: doi:10.20383/103.01000.
 * Kempka, M., Wydmuch, M., Runc, G., Toczek, J., & Jaśkowski, W. (2016). ViZDoom: A Doom-based AI research platform for visual reinforcement learning. *IEEE Conference on Computational Intelligence and Games*.
 * Logan, G. D. (1988). Toward an instance theory of automatization. *Psychological Review, 95*(4), 492-527.
 * Martí, D., Deco, G., Mattia, M., Gigante, G., & Del Giudice, P. (2008). A fluctuation-driven mechanism for slow decision processes in reverberant networks. *PLoS ONE, 3*(7), e2534.
