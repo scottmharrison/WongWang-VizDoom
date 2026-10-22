@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+shots_*/
+data/
+play_*.csv
+*.pk3
+dash*.png
