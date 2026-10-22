@@ -229,7 +229,6 @@ Tiers: `ww`, `ww_cr`, `ww_cr_lca`. Defaults are in `sp2_nway.NW_PRESETS`; any ke
 * Kempka, M., Wydmuch, M., Runc, G., Toczek, J., & Jaśkowski, W. (2016). ViZDoom: A Doom-based AI research platform for visual reinforcement learning. *IEEE Conference on Computational Intelligence and Games*.
 * Logan, G. D. (1988). Toward an instance theory of automatization. *Psychological Review, 95*(4), 492-527.
 * Martí, D., Deco, G., Mattia, M., Gigante, G., & Del Giudice, P. (2008). A fluctuation-driven mechanism for slow decision processes in reverberant networks. *PLoS ONE, 3*(7), e2534.
-* Moghaddam, Liu, Holden & Serota (2020) — generalised beta-prime (GB2) distribution for RT tails.
 * Pathak, A., & Battaglia, D. (2025). Critical roaming. *bioRxiv*, doi:10.64898/2025.12.29.696846.
 * Usher, M., & McClelland, J. L. (2001). The time course of perceptual choice: The leaky, competing accumulator model. *Psychological Review, 108*(3), 550-592.
 * Wang, X.-J. (2002). Probabilistic decision making by slow reverberation in cortical circuits. *Neuron, 36*(5), 955-968.
