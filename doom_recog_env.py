@@ -1,5 +1,5 @@
 """
-doom_recog_env.py -- multi-choice Doom recognition stimuli (RTify-style n-AFC).
+doom_recog_env.py -- multi-choice Doom recognition stimuli (n-AFC).
 
 Each trial: a monster of one of N types is summoned in front of the player in basic.wad
 (sv_cheats 1 + summon, verified by your probe), the player walks backwards until the sprite is

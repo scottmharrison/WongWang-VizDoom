@@ -14,8 +14,7 @@ Evidence policies
                         logits = ev * [a*(dx<0), a*(dx>0), 1-a].  Perfectly centred -> SHOOT wins by ev;
                         far off-centre -> TURN wins by ev; in between the pools compete (slow, error-prone).
    --policy mod:fn    : your own function fn(frame, enemies) -> 3 logits (or None = nothing to decide).
-                        This is where a pretrained network goes (Sample Factory / RL policy action logits,
-                        reduced to left/right/shoot).  NOT implemented here: it needs torch + that library.
+                        Hook for an external policy's action logits (left/right/shoot).  NOT implemented here.
 
 Motion while deciding: by default the current action keeps running during the deliberation (RT) until the new
 choice replaces it: a TURN continues; SHOOT continues while an enemy is still within 2*aim_tol of the crosshair.
@@ -559,7 +558,7 @@ def main():
     ap.add_argument("--ev", type=float, default=12.0, help="evidence scale (logit margin when fully decisive)")
     ap.add_argument("--aim-tol", type=float, default=0.15, help="|dx| at which turning fully beats shooting")
     ap.add_argument("--policy", default="", help="module:function returning 3 logits from (frame, enemies)")
-    ap.add_argument("--params", default="", help="json of decision-module parameters (e.g. from rtify_ww.py)")
+    ap.add_argument("--params", default="", help="json of decision-module parameters (e.g. from your own fits)")
     ap.add_argument("--scenario", default="defend_the_center.cfg")
     ap.add_argument("--enemy-names", default="", help="optional comma list (case-insensitive); default: every object that is not a pickup/projectile/effect/player")
     ap.add_argument("--no-corpse-filter", action="store_true")

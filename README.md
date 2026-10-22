@@ -93,7 +93,7 @@ ViZDoom labels buffer -> nearest enemy's horizontal offset dx -> hand-written ev
 Real input is only `dx = (enemy_centre_x − W/2)/(W/2)` from the game's object-label buffer (nearest/tallest enemy).
 Evidence for each net is a fixed function of `dx` (MOVE: `ev·min(|dx|/move_scale,1)` toward the enemy; SHOOT:
 `ev·[al, 1−al]`, `al=min(|dx|/aim_tol,1)`; SEARCH: weak memory of the side the last enemy left by). Nets never see
-health, ammo, distance, enemy count or each other. **No CNN is used in this demo.** The pulse controller
+health, ammo, distance, enemy count or each other. **No neural-network/CNN front end is used.** The pulse controller
 (how long a key stays down) and the enemy mod are scaffolding.
 
 The window shows, per net, seven live panels: WW rates, LCA activation, the WW-vs-LCA race, evidence/input, roaming
@@ -122,9 +122,6 @@ pip install -r requirements.txt    # numpy, vizdoom, pygame
   (see the [ViZDoom installation docs](https://github.com/Farama-Foundation/ViZDoom)). A display is needed for the
   window; use `--png` / `--compare` for headless runs.
 * Test: `python -c "import vizdoom; print(vizdoom.__version__)"`.
-
-Not needed unless you use them: **PyTorch** (`pip install torch`) only for `train_cnn.py`, `watch_cnn.py`,
-`rtify_ww.py`. Those also need extra files that are not in this repo (`monsters.npz`, `cnn.pt`, `sp2_kernel.c`).
 
 No-install smoke test (no Doom, no window):
 
@@ -217,7 +214,7 @@ Tiers: `ww`, `ww_cr`, `ww_cr_lca`. Defaults are in `sp2_nway.NW_PRESETS`; any ke
 | `play_ww.py` | ViZDoom env wrapper, enemy mod, older single-net player |
 | `run_human_task.py`, `rdm_doom_env.py` | RDM-analogue task (human or model) |
 | `run_recog_task.py`, `doom_recog_env.py`, `watch_ww.py` | 5-way recognition task |
-| `proto_frontend.py`, `gen_dataset.py`, `train_cnn.py`, `watch_cnn.py`, `rtify_ww.py` | optional CNN front end / RTify (need torch and extra files) |
+| `proto_frontend.py` | prototype-matching evidence front end used by `watch_ww.py` |
 
 ## 7. Known limitations
 * Presets are hand-tuned for the demo, not fitted to data.
@@ -239,4 +236,3 @@ Tiers: `ww`, `ww_cr`, `ww_cr_lca`. Defaults are in `sp2_nway.NW_PRESETS`; any ke
 * Wang, X.-J. (2002). Probabilistic decision making by slow reverberation in cortical circuits. *Neuron, 36*(5), 955-968.
 * Wong, K.-F., & Wang, X.-J. (2006). A recurrent network mechanism of time integration in perceptual decisions. *Journal of Neuroscience, 26*(4), 1314-1328.
 * Ye, W., & Li, Z. (2021). Physical mechanism of mind changes and tradeoffs among speed, accuracy and energy cost in brain decision making: landscape, flux and path perspectives. *Frontiers in Computational Neuroscience, 15*, 740601 (check exact citation in the project PDF).
-* Cheng et al. (2024). RTify (neural-network RT alignment), NeurIPS — citation to be verified.

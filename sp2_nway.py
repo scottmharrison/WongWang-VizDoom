@@ -1,7 +1,7 @@
 """
-sp2_nway.py -- the three StarPower-2 tiers as an N-ALTERNATIVE decision module fed by CNN logits.
+sp2_nway.py -- the three StarPower-2 tiers as an N-ALTERNATIVE decision module fed by evidence logits.
 
-   CNN logits  --->  [ Wong-Wang n-pool attractor ]  ---+
+   logits      --->  [ Wong-Wang n-pool attractor ]  ---+
                 |--->  [ instance retrieval -> LCA   ]  ---+--> first to threshold wins -> choice, RT
                        (tier ww_cr_lca only)
    critical roaming: u0 (overall input level of the WW network) wanders trial to trial as a clipped OU
@@ -10,17 +10,17 @@ sp2_nway.py -- the three StarPower-2 tiers as an N-ALTERNATIVE decision module f
   ww         n-pool WW, constant u0
   ww_cr      + roaming u0  (lapses / long RTs when u0 drifts toward criticality)
   ww_cr_lca  + fast instance route: retrieval onset ~ Weibull(s_W * N^-1/2), retrieval strength
-               rho_m = rho_max*N/(N+200), N ~ lognormal; the LCA input is rho_m scaled by the CNN's class
+               rho_m = rho_max*N/(N+200), N ~ lognormal; the LCA input is rho_m scaled by the class
                posterior q = softmax(logits):  rho_k = g*rho_m*((1-bias)/n + bias*q_k),  g = u0/u0*.
-               With n = 2 and a confident correct CNN this reduces exactly to the fitted 2-choice form
+               With n = 2 and confident, correct evidence this reduces exactly to the fitted 2-choice form
                rho = g*rho_m*(1 +/- bias)/2.   (Making the fast route stimulus-dependent through the
-               CNN is a design choice of this code, not something the pooled fits could test.)
+               logits is a design choice of this code, not something the pooled fits could test.)
 
 Evidence mapping for the WW route:  coh_k = clip(gain*(logit_k - mean logit), +/-0.9),
 pool k receives J_EXT*u0*(1 + coh_k).  RT = decision time + Ter.
 
 All numbers in NW_PRESETS are STARTING POINTS for the n-pool regime (u0=16, noise=0.02 was tuned by
-hand); only the LCA parameters come from the fitted Haddara E2 hybrid.  Fit your own with rtify_ww.py.
+hand); only the LCA parameters come from the fitted Haddara E2 hybrid. 
 """
 import math
 import numpy as np
@@ -90,7 +90,7 @@ class NWayAgent:
         return -1.0, -1, t0, np.array(xs)
 
     def decide(self, logits, timeout_ms=3000):
-        """logits: length-n CNN output.  Returns a dict with everything needed to watch the trial."""
+        """logits: length-n evidence logits.  Returns a dict with everything needed to watch the trial."""
         p = self.p
         logits = np.asarray(logits, float)
         n = logits.size

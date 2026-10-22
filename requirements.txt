@@ -2,5 +2,3 @@
 numpy
 vizdoom
 pygame
-# only for the optional CNN / RTify scripts (train_cnn.py, watch_cnn.py, rtify_ww.py)
-# torch

@@ -1,12 +1,8 @@
 """probe_spawn.py -- can we make ViZDoom show different enemy types on demand (needed for a
-multi-choice RTify-style task)?  Also reports torch availability.  Run:  python probe_spawn.py
+multi-choice recognition task)?  Run:  python probe_spawn.py
 Saves probe_frames/<name>.png so you can look at what each attempt produced."""
 import os, sys
 print("python", sys.version.split()[0])
-try:
-    import torch; print("torch", torch.__version__, "cuda:", torch.cuda.is_available())
-except Exception as e:
-    print("torch NOT available:", repr(e))
 import numpy as np, vizdoom as vzd, pygame
 print("vizdoom", getattr(vzd, "__version__", "?"))
 os.makedirs("probe_frames", exist_ok=True)

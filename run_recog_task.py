@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-run_recog_task.py -- Doom monster-recognition task (multi-choice RT), the human-data half of an
-RTify-style model.  A monster appears; press the number key (1-5) for its type.  Difficulty is
+run_recog_task.py -- Doom monster-recognition task (multi-choice RT), the human-data half of a
+model-vs-human comparison.  A monster appears; press the number key (1-5) for its type.  Difficulty is
 controlled by image contrast (and optional noise).  RT = key press minus the display flip.
 
     python run_recog_task.py --participant scott
